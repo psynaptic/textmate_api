@@ -33,6 +33,28 @@ function textmate_api_menu() {
   return $items;
 }
 
+function textmate_api_api_active_branch_alter(&$branch) {
+  $branches = api_get_branches();
+
+  switch (menu_get_object('node')->path) {
+    case '5':
+      $branch = $branches[1];
+      break;
+
+    case '6':
+      $branch = $branches[2];
+      break;
+
+    case '7':
+      $branch = $branches[3];
+      break;
+
+    case '8':
+      $branch = $branches[7];
+      break;
+  }
+}
+
 /**
  * Page callback. Perform search search. Search exact match and redirect
  */
